@@ -50,9 +50,8 @@ const removeBook = async (req, res) => {
     let books = await readFile("books.json");
     const bookId = Number(req.params.id);
 
-    books = books.filter((book, index) => {
-      index !== bookId;
-    });
+    books = books.filter((book, index) => index !== bookId);
+
     await writeFile("books.json", books);
     return res.status(200).send("Book deleted successfully");
   } catch (err) {
