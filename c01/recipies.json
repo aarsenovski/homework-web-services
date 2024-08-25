@@ -1,0 +1,22 @@
+[
+  {
+    "name": "pizza",
+    "ingredients": [
+      {
+        "name": "beef",
+        "quantity": "300g",
+        "type": "meat"
+      },
+      {
+        "name": "ketchup",
+        "quantity": "100g",
+        "type": "dressing"
+      },
+      {
+        "name": "mozarella",
+        "quantity": "200g",
+        "type": "cheese"
+      }
+    ]
+  }
+]

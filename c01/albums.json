@@ -1,0 +1,33 @@
+[
+  {
+    "bandName": "Linkin Park",
+    "albums": [
+      {
+        "albumName": "Hybrid Theory",
+        "releaseYear": 2000,
+        "producers": ["Don Gilmore"],
+        "singles": [
+          {
+            "name": "One Step",
+            "released": "August 29, 2000"
+          },
+          { "name": "Crawling", "released": "April 2, 2001" },
+          { "name": "Papercut", "released": "June 18, 2001" },
+          { "name": "In the end", "released": "October 9, 2001" }
+        ]
+      },
+      {
+        "albumName": "Meteora",
+        "releaseYear": 2003,
+        "producers": ["Don Gilmore", "Linkin Park"],
+        "singles": [
+          { "name": "Somewhere I belong", "released": "February 24, 2003" },
+          { "name": "Faint", "released": "June 9, 2003" },
+          { "name": "Numb", "released": "September 8, 2003" },
+          { "name:": "From the inside", "released": "January 12, 2004" },
+          { "name": "Breaking the habit", "released": "June 14, 2004" }
+        ]
+      }
+    ]
+  }
+]
