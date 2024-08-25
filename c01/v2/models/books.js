@@ -33,6 +33,6 @@ const removeBook = async (id) => {
 module.exports = {
   readBooks,
   addBook,
-  update,
+  updateBook,
   removeBook,
 };

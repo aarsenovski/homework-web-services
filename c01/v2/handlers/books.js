@@ -1,5 +1,4 @@
 const { readBooks } = require("../models/books");
-const { readFile, writeFile } = require("../read-write");
 
 const getBooks = async (req, res) => {
   try {

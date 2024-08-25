@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const uri =
-  "mongodb+srv://andrejarsenovski:<db_password>@cluster9999.k6bsqel.mongodb.net/?retryWrites=true&w=majority&appName=Cluster9999";
+  "mongodb+srv://andrejarsenovski:<db_password>@cluster9999.k6bsqel.mongodb.net/sample_mflix?retryWrites=true&w=majority&appName=Cluster9999";
 
 async function connect() {
   try {
