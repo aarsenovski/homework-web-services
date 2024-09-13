@@ -2,16 +2,13 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 const { getByEmail, create, setNewPassword } = require("../pkg/account");
-const {
-  validateAccount,
-  AccountLogin,
-  AccoutRegister,
-} = require("../pkg/account/validate");
+const { AccountLogin, AccountRegister } = require("../pkg/account/validate");
 const { getSection } = require("../pkg/config");
+const validateSchema = require("../helper/validateSchema");
 
 const login = async (req, res) => {
   try {
-    await validateAccount(req.body, AccountLogin);
+    await validateSchema(req.body, AccountLogin);
     // Body Postman
     const { email, password } = req.body;
 
@@ -41,18 +38,18 @@ const login = async (req, res) => {
     // new Date() / 1000 + 7 * 24 * 60 * 60 -> vremeto od povikuvanje na login fukcijata + 7 denovi vo idnina
 
     // process.env.ENVIRONMENT
-    const token = jwt.sign(payload, getSection("development").jwt_secret);
+    const token = jwt.sign(payload, `${process.env.jwt_secret}`);
 
     return res.status(200).send({ token });
   } catch (err) {
-    console.err(err);
+    console.error(err);
     return res.status(500).send("Internal Server Error!");
   }
 };
 
 const register = async (req, res) => {
   try {
-    await validateAccount(req.body, AccoutRegister);
+    await validateSchema(req.body, AccountRegister);
     const { username, email, password, confirmPassword } = req.body;
 
     const exist = await getByEmail(email);
@@ -73,7 +70,7 @@ const register = async (req, res) => {
     const account = await create(data);
     return res.status(200).send(account);
   } catch (err) {
-    console.err(err);
+    console.error(err);
     return res.status(500).send("Internal Server Error!");
   }
 };
@@ -84,7 +81,7 @@ const refreshToken = async (req, res) => {
     exp: new Date() / 1000 + 7 * 24 * 60 * 60, // ke go prodolzi tokenot za 7 dena
   };
 
-  const token = jwt.sign(payload, getSection("development".jwt_secret));
+  const token = jwt.sign(payload, `${process.env.jwt_secret}`);
 
   return res.status(200).send({ token });
 };
@@ -121,13 +118,6 @@ const resetPassword = async (req, res) => {
     return res.status(500).send("Internal Server Error!");
   }
 };
-
-// const forgotPassword =  async (req, res) => {
-// }
-
-// index, server, app.js -> rutite
-// controller/handler
-// models, pkg
 
 module.exports = {
   login,
