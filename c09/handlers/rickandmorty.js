@@ -2,7 +2,7 @@ const { getCharactersNames } = require("../pkg/rickandmorty");
 
 const getTheCharactersNames = async (req, res) => {
   try {
-    const characters = await getCharactersNames();
+    const characters = await getCharactersNames(req.params.id);
     return res.status(200).send(characters);
   } catch (err) {
     console.log(err);
