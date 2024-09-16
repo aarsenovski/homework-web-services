@@ -1,0 +1,6 @@
+{
+  "rickandmorty": {
+    "baseUrl": "https://rickandmortyapi.com/api",
+    "port": 3000
+  }
+}
